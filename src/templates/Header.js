@@ -4,19 +4,14 @@ const Header = () => {
             <div class="Header-logo">
                 <h1>
                     <a href="/">
-                        CoinLore
+                        Cripto SPA 
                     </a>  
                 </h1>
             </div>
-
-            <div class="Header-nav">
-                <a href="#/about">
-                    About
-                </a>
-            </div>
         </div>
-
-        <canvas id="cryptoChart" width="60" height="20"></canvas>
+        <div class="Character-chart-header">
+            <canvas id="cryptoChart" width="60" height="14"></canvas>
+        </div>
     `;
     return view;
 };
