@@ -9,9 +9,6 @@ const Header = () => {
                 </h1>
             </div>
         </div>
-        <div class="Character-chart-header">
-            <canvas id="cryptoChart" width="60" height="14"></canvas>
-        </div>
     `;
     return view;
 };

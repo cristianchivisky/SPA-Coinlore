@@ -34,10 +34,15 @@ const Home = async () => {
         </div>
       </div>
     </div>
-
-    <div class="Characters">
+    <div class="Character-chart-header">
+      <canvas id="cryptoChart" width="60" height="14"></canvas>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search by name...">
+    </div>
+    <div id="characters-container" class="Characters">
       ${characters.data.map(character => `
-        <article class="Characters-item">
+        <article class="Characters-item" data-name="${character.name.toLowerCase()}">
           <a href="#/${character.id}/">
             <h2>Symbol: ${character.symbol}</h2>
             <h2>Name: ${character.name}</h2>
@@ -75,6 +80,26 @@ const Home = async () => {
         },
       },
     });
+  }, 0);
+  setTimeout(() => {
+    const searchInput = document.getElementById('searchInput');
+    const charactersContainer = document.getElementById('characters-container');
+
+    if (searchInput && charactersContainer) {
+      searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const items = charactersContainer.querySelectorAll('.Characters-item');
+
+        items.forEach(item => {
+          const name = item.getAttribute('data-name');
+          if (name.includes(searchTerm)) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    }
   }, 0);
 
   return view;

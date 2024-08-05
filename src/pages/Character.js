@@ -25,7 +25,6 @@ const Character = async () => {
     };
 
     const view = `
-    <div>
         <div class="Characters-inner">
             <article class="Characters-card">
                 <h2>Symbol: ${character[0].symbol}</h2>
@@ -50,8 +49,6 @@ const Character = async () => {
                 <canvas id="characterChart"></canvas>
             </div>
         </div>
-        
-    </div>
     `;
     setTimeout(() => {
         const ctx = document.getElementById('characterChart').getContext('2d');
